@@ -4,7 +4,7 @@ import { ip } from "elysia-ip";
 const app = new Elysia()
   .get("/", () => "Hello Elysia")
 
-  .use(ip({}))
+  .use(ip({ headersOnly: true }))
 
   .get("/", ({ ip, status }) => {
     if (!ip) return status(500, "Unable to determine IP address");
